@@ -1,0 +1,14 @@
+# 各プロジェクト用のトリガーとして「代入変数」で以下を設定
+# _GCP_PROJECT = 
+steps:
+# 開発環境にdeploy 
+gcloud container clusters get-credentials ${_CLUSTER_NAME}
+  - name: 'google/cloud-sdk:258.0.0-alpine'
+    args: ['gcloud', 'config', 'set', '${_PROJECT_ID}']
+    id: set-config
+  - name: 'google/cloud-sdk:258.0.0-alpine'
+    args: ['gcloud', 'container', 'clusters', ' get-credentials', '${CLUSTER_NAME}']
+    id: get-credential
+  - name: 'google/cloud-sdk:258.0.0-alpine'
+    args: ['kubectl', 'apply', '-f', '.', '-R']
+    id: apply
