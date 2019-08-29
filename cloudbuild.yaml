@@ -2,7 +2,6 @@
 # _GCP_PROJECT = 
 steps:
 # 開発環境にdeploy 
-gcloud container clusters get-credentials $_CLUSTER_NAME
   - name: 'google/cloud-sdk:258.0.0-alpine'
     args: ['gcloud', 'config', 'set', $_PROJECT_ID]
     id: set-config
