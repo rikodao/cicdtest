@@ -4,5 +4,5 @@ steps:
   - name: 'google/cloud-sdk:258.0.0-alpine'
     args: ['gcloud', 'container', 'clusters', 'get-credentials', '--region', $_REGION, $_CLUSTER_NAME]
   - name: 'google/cloud-sdk:258.0.0-alpine'
-    args: ['kubectl', 'apply', '-f', 'manufests', '-R']
+    args: ['kubectl', 'apply', '-f', 'deployment.yaml']
     id: apply
