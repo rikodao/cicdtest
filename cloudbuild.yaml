@@ -1,8 +1,11 @@
 steps:
+gcloud install kubectl
   - name: 'google/cloud-sdk:258.0.0-alpine'
     args: ['gcloud', 'config', 'set', 'core/project', $_PROJECT_ID]
   - name: 'google/cloud-sdk:258.0.0-alpine'
     args: ['gcloud', 'container', 'clusters', 'get-credentials', '--region', $_REGION, $_CLUSTER_NAME]
+  - name: 'google/cloud-sdk:258.0.0-alpine'
+    args: ['gcloud', 'install', 'kubectl']
   - name: 'google/cloud-sdk:258.0.0-alpine'
     args: ['kubectl', 'apply', '-f', 'deployment.yaml']
     id: apply
