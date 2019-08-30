@@ -2,6 +2,6 @@ steps:
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['kubectl', 'apply', '-f', '.']
     env:
-    - 'CLOUDSDK_COMPUTE_ZONE=$_REGION'
+    - 'CLOUDSDK_COMPUTE_REGION=$_REGION'
     - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
     id: apply
