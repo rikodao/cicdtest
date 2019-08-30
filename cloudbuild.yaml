@@ -1,6 +1,6 @@
 steps:
   - name: 'hashicorp/terraform:0.12.7'
-    args: ['workspace', 'select', $_WORKSPACE]
+    args: ['workspace', 'new', $_WORKSPACE]
   - name: 'hashicorp/terraform:0.12.7'
     args: ['plan']
   - name: 'hashicorp/terraform:0.12.7'
